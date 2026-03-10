@@ -21,7 +21,7 @@
                 <label>Status Atual:</label><br>
                 <select name="status" style="width: 100%; padding: 5px;">
                     <option value="Pendente" {{ $os->status == 'Pendente' ? 'selected' : '' }}>Pendente</option>
-                    <option value="Em Atendimento" {{ $os->status == 'Em Tratativa' ? 'selected' : '' }}>Em Tratativa</option>
+                    <option value="Em Tratativa" {{ $os->status == 'Em Tratativa' ? 'selected' : '' }}>Em Tratativa</option>
                     <option value="Concluído" {{ $os->status == 'Concluído' ? 'selected' : '' }}>Concluído</option>
                 </select>
             </div>

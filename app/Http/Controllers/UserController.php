@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use App\Models\OrdemServico; // Importação necessária para criar a O.S.
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\OrdemServico; 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth; 
 
@@ -49,7 +49,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('users.index', compact('users'));
+        return view('usuarios.index', compact('users'));
     }
 
     // Processa o cadastro de novos usuários (Feito pelo Admin)

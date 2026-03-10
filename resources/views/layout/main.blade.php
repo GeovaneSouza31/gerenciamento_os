@@ -116,7 +116,7 @@
         <nav class="nav-container">
             <a href="/" class="logo-text">
                 <i class="bi bi-gear-fill text-primary"></i> 
-                OFICINA<span class="text-primary">PRO</span>
+                Chamados <span class="text-primary">TI</span>
             </a>
             <a href="/login" class="btn-nav-login">
                 <i class="bi bi-box-arrow-in-right me-1"></i> Acessar
