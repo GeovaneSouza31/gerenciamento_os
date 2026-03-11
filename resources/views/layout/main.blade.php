@@ -49,7 +49,7 @@
 
         .logo-text {
             font-weight: 800;
-            font-size: 1.25rem;
+            font-size: 2.00rem;
             color: var(--dark-slate);
             letter-spacing: -0.5px;
             text-decoration: none;
