@@ -46,4 +46,77 @@ class OrdemServicoController extends Controller
         // Redireciona para a listagem com mensagem de sucesso
         return redirect()->route('os.index')->with('success', 'Ordem de Serviço aberta com sucesso!');
     }
+
+   public function pendentes()
+{
+
+$ordens = OrdemServico::where('status','Pendente')->get();
+
+$total = OrdemServico::count();
+
+$pendentes = OrdemServico::where('status','Pendente')->count();
+
+$tratativa = OrdemServico::where('status','Em Tratativa')->count();
+
+$concluidas = OrdemServico::where('status','Concluído')->count();
+
+return view('admin.index',compact(
+'ordens',
+'total',
+'pendentes',
+'tratativa',
+'concluidas'
+));
+
+}
+
+
+
+public function tratativa()
+{
+
+$ordens = OrdemServico::where('status','Em Tratativa')->get();
+
+$total = OrdemServico::count();
+
+$pendentes = OrdemServico::where('status','Pendente')->count();
+
+$tratativa = OrdemServico::where('status','Em Tratativa')->count();
+
+$concluidas = OrdemServico::where('status','Concluído')->count();
+
+return view('admin.index',compact(
+'ordens',
+'total',
+'pendentes',
+'tratativa',
+'concluidas'
+));
+
+}
+
+
+
+public function concluidas()
+{
+
+$ordens = OrdemServico::where('status','Concluído')->get();
+
+$total = OrdemServico::count();
+
+$pendentes = OrdemServico::where('status','Pendente')->count();
+
+$tratativa = OrdemServico::where('status','Em Tratativa')->count();
+
+$concluidas = OrdemServico::where('status','Concluído')->count();
+
+return view('admin.index',compact(
+'ordens',
+'total',
+'pendentes',
+'tratativa',
+'concluidas'
+));
+
+}
 }

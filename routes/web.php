@@ -52,3 +52,80 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/os/nova', [OrdemServicoController::class, 'create'])->name('os.create');
     Route::post('/os/nova', [OrdemServicoController::class, 'store'])->name('os.store');
 });
+
+//filtro
+Route::middleware(['auth', \App\Http\Middleware\CheckAdmin::class])->group(function () {
+
+Route::get('/dashboard-admin',
+[AdminController::class,'dashboard'])
+->name('dashboard.admin');
+
+
+Route::get('/admin/os',
+[AdminController::class,'indexOs'])
+->name('admin.os.index');
+
+
+/* FILTROS */
+
+Route::get('/admin/os/pendentes',
+[AdminController::class,'pendentes'])
+->name('admin.os.pendentes');
+
+Route::get('/admin/os/tratativa',
+[AdminController::class,'tratativa'])
+->name('admin.os.tratativa');
+
+Route::get('/admin/os/concluidas',
+[AdminController::class,'concluidas'])
+->name('admin.os.concluidas');
+
+
+/* ID SEMPRE POR ULTIMO */
+
+Route::get('/admin/os/{id}',
+[AdminController::class,'show'])
+->whereNumber('id')
+->name('admin.os.show');
+
+
+Route::put('/admin/os/{id}',
+[AdminController::class,'update'])
+->whereNumber('id')
+->name('admin.os.update');
+
+});
+
+//filtro adm e usuarios
+
+Route::get('/usuarios',
+[UserController::class,'index'])
+->name('users.index');
+
+Route::get('/usuarios/admins',
+[UserController::class,'admins'])
+->name('users.admins');
+
+Route::get('/usuarios/users',
+[UserController::class,'usuarios'])
+->name('users.users');
+
+//relatorios
+Route::get('/relatorios', function () {
+    return view('relatorios.index');
+})->middleware('auth')->name('relatorios.index');  
+
+Route::middleware(['auth', \App\Http\Middleware\CheckAdmin::class])
+->group(function () {
+
+    Route::get('/relatorios', function () {
+        return view('relatorios.index');
+    })->name('relatorios.index');
+
+});
+
+//rota para pdf
+
+Route::get('/relatorios/pdf', [AdminController::class, 'exportarPdf'])
+->middleware(['auth', \App\Http\Middleware\CheckAdmin::class])
+->name('relatorios.pdf');

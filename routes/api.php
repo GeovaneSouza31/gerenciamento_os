@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Api\RelatorioController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,4 +16,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::prefix('relatorios')->group(function () {
+
+    Route::get('/resumo', [RelatorioController::class, 'resumo']);
+    Route::get('/concluidas', [RelatorioController::class, 'concluidas']);
+    Route::get('/por-status', [RelatorioController::class, 'porStatus']);
+    Route::get('/por-usuario', [RelatorioController::class, 'porUsuario']);
+    Route::get('/por-periodo', [RelatorioController::class, 'porPeriodo']);
+
 });
