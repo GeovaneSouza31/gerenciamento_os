@@ -186,10 +186,18 @@
                 <input type="text" name="titulo" required placeholder="Ex: Meu computador não liga ou internet lenta">
             </div>
 
-            <div class="form-row">
+           <div class="form-row">
                 <div class="form-group">
                     <label>QUAL É O SEU SETOR?</label>
-                    <input type="text" name="setor" required placeholder="Ex: Financeiro / RH">
+                    <select name="setor" required>
+                        <option value="">Selecione...</option>
+                        <option value="Financeiro">💼 Financeiro</option>
+                        <option value="RH">👥 RH</option>
+                        <option value="TI">💻 TI</option>
+                        <option value="Marketing">📈 Marketing</option>
+                        <option value="Comercial">📞 Comercial</option>
+                        <option value="Outros">⚙️ Outros</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
